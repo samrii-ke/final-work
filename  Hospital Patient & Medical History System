@@ -276,3 +276,82 @@ void showPatientHistory(string medicalID) {
         }
     }
 };
+//samrawit
+int main() {
+    HospitalSystem system;
+    int choice;
+
+    do {
+        // Main menu for the system
+        cout << "\nHospital Patient & Medical History System\n";
+        cout << "Choose an option by entering the corresponding number:\n";
+        cout << "1. Add a new patient\n";
+        cout << "2. Record medical history for a patient\n";
+        cout << "3. View a patient's medical history\n";
+        cout << "4. Schedule an appointment\n";
+        cout << "5. Display all patients and their medical information\n";
+        cout << "6. Search for a patient by name\n";
+        cout << "7. Update a patient's medical history\n";
+        cout << "0. Exit the system\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "\nYou have selected: Add a new patient.\n";
+                system.addPatient();
+                break;
+            case 2:
+                {
+                    string medicalID;
+                    cout << "\nYou have selected: Record medical history for a patient.\n";
+                    cout << "Enter the patient's medical ID: ";
+                    cin >> medicalID;
+                    system.recordMedicalHistory(medicalID);
+                    break;
+                }
+            case 3:
+                {
+                    string medicalID;
+                    cout << "\nYou have selected: View a patient's medical history.\n";
+                    cout << "Enter the patient's medical ID: ";
+                    cin >> medicalID;
+                    system.showPatientHistory(medicalID);
+                    break;
+                }
+            case 4:
+                {
+                    string medicalID;
+                    cout << "\nYou have selected: Schedule an appointment for a patient.\n";
+                    cout << "Enter the patient's medical ID: ";
+                    cin >> medicalID;
+                    system.scheduleAppointment(medicalID);
+                    break;
+                }
+            case 5:
+                cout << "\nYou have selected: Display all patients and their medical information.\n";
+                system.displayAllPatients();
+                break;
+            case 6:
+                cout << "\nYou have selected: Search for a patient by name.\n";
+                system.searchPatientByName();
+                break;
+            case 7:
+                {
+                    string medicalID;
+                    cout << "\nYou have selected: Update a patient's medical history.\n";
+                    cout << "Enter the patient's medical ID: ";
+                    cin >> medicalID;
+                    system.updateMedicalHistory(medicalID);
+                    break;
+                }
+            case 0:
+                cout << "Exiting the system...\n";
+                break;
+            default:
+                cout << "Invalid choice. Please try again.\n";
+        }
+    } while (choice != 0);
+
+    return 0;
+}
